@@ -19,28 +19,27 @@ export async function logout() {
   return response.data;
 }
 
-
 export async function getDirectoryData(path) {
-  const response = await axios.get(`${BASE_URL}/directory`, { params: { path } });
+  const response = await axios.get(`${BASE_URL}/home`, { params: { path }, withCredentials: true });
   return response.data;
 }
 
 export async function searchFiles(query, path) {
-  const response = await axios.get(`${BASE_URL}/search`, { params: { query, path } });
+  const response = await axios.get(`${BASE_URL}/search`, { params: { query, path }, withCredentials: true });
   return response.data;
 }
 
 export async function read_file_content(file_path) {
-  const response = await axios.get(`${BASE_URL}/file`, { params: { file_path } });
+  const response = await axios.get(`${BASE_URL}/file_content`, { params: { path: file_path }, withCredentials: true });
   return response.data;
 }
 
 export async function download_file(file_path) {
-  const response = await axios.get(`${BASE_URL}/download`, { params: { file_path }, responseType: 'blob' });
+  const response = await axios.get(`${BASE_URL}/download`, { params: { file_path }, responseType: 'blob', withCredentials: true });
   return response.data;
 }
 
 export async function get_file_size(file_path) {
-  const response = await axios.get(`${BASE_URL}/size`, { params: { file_path } });
+  const response = await axios.get(`${BASE_URL}/size`, { params: { file_path }, withCredentials: true });
   return response.data;
 }

@@ -8,7 +8,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
-CORS(app)
+CORS(app, supports_credentials=True)  # Ajoutez "supports_credentials=True"
 
 @app.route('/')
 def index():
@@ -45,10 +45,9 @@ def home():
     dirs, files = get_directory_data(path, username)
     return render_template('home.html', dirs=dirs, files=files, path=path, username=username)
 
-
 @app.route('/file_content', methods=['GET'])
 def file_content():
-    username = request.cookies.get('username')
+    username = session.get('user')
     if not username:
         return redirect(url_for('login'))
 
@@ -58,7 +57,7 @@ def file_content():
 
 @app.route('/search', methods=['GET'])
 def search():
-    username = request.cookies.get('username')
+    username = session.get('user')
     if not username:
         return redirect(url_for('login'))
 
@@ -69,7 +68,7 @@ def search():
 
 @app.route('/download', methods=['GET'])
 def download():
-    username = request.cookies.get('username')
+    username = session.get('user')
     if not username:
         return redirect(url_for('login'))
 
@@ -85,7 +84,6 @@ def download():
     response = send_from_directory(directory=data, filename=zip_filename, as_attachment=True)
     response.headers['Content-Disposition'] = f'attachment; filename={zip_filename}'
     return response
-
 
 if __name__ == '__main__':
     app.run(debug=True)
