@@ -19,6 +19,8 @@
   import { login } from '@/api';
   
   export default {
+    name: 'UserLogin', // Ajoutez cette ligne
+
     data() {
       return {
         username: '',
