@@ -1,16 +1,24 @@
-import axios from 'axios';
+import axios from "axios";
+
+const instance = axios.create({
+  baseURL: "http://localhost:5001/",
+  withCredentials: true, // Ajoutez cette ligne pour gérer les sessions
+});
+
+export default instance;
 
 const BASE_URL = 'http://localhost:5001';
 
 export async function login(username, password) {
-  const response = await axios.post(`${BASE_URL}/login`, { username, password });
+  const response = await axios.post(`${BASE_URL}/login`, { username, password }, { withCredentials: true });
   return response.data;
 }
 
 export async function logout() {
-  const response = await axios.post(`${BASE_URL}/logout`);
+  const response = await axios.post(`${BASE_URL}/logout`, {}, { withCredentials: true });
   return response.data;
 }
+
 
 export async function getDirectoryData(path) {
   const response = await axios.get(`${BASE_URL}/directory`, { params: { path } });
