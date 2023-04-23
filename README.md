@@ -65,3 +65,22 @@ WHS Project: OULFA OUAHOUDA
 8. Mise en place de la déconnexion : Ajoutez un bouton de déconnexion sur la page d'accueil qui permet à l'utilisateur de se déconnecter de l'application. Utilisez le service Flask pour supprimer le jeton d'authentification et rediriger l'utilisateur vers la page de connexion.
 
 9. Déploiement de l'application : Déployez l'application en tant que service Linux pour permettre aux utilisateurs d'y accéder via un navigateur Web.
+
+
+Étapes pour créer les composants et consommer l'API Flask
+Générer un nouveau projet Angular en exécutant la commande ng new <nom-du-projet> --routing. Cela va créer une nouvelle application Angular avec une structure de fichiers de base, incluant un fichier app-routing.module.ts pour gérer les routes de l'application.
+
+Créer les services nécessaires pour communiquer avec l'API Flask en exécutant la commande ng generate service <nom-du-service>. Les services sont des classes qui permettent de récupérer des données depuis une source externe (comme une API) et de les manipuler dans l'application.
+
+Créer les composants nécessaires pour votre application en exécutant la commande ng generate component <nom-du-composant>. Les composants sont des éléments d'interface utilisateur réutilisables qui permettent de structurer l'application en sous-sections.
+
+Dans le fichier app.module.ts, importer les modules nécessaires pour votre application (par exemple, HttpClientModule pour communiquer avec l'API Flask via HTTP).
+
+Dans le fichier de service, écrire le code pour communiquer avec l'API Flask (par exemple, en utilisant la fonction HttpClient pour envoyer des requêtes HTTP GET/POST).
+
+Dans le fichier de composant, importer le service correspondant et appeler les fonctions nécessaires pour récupérer les données depuis l'API Flask.
+
+Utiliser les données récupérées pour afficher les informations souhaitées dans le composant en utilisant les directives d'Angular (comme *ngFor pour afficher une liste de résultats).
+
+Utiliser le fichier app-routing.module.ts pour définir les routes de l'application et naviguer entre les différents composants.
+
