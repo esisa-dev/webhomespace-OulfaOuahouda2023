@@ -35,7 +35,7 @@ def logout():
     session.pop('user', None)
     return jsonify({"message": "Logged out successfully"}), 200
 
-@app.route('/home', methods=['POST'])
+@app.route('/home', methods=['GET'])
 def home():
     username = session.get('user')
     if not username:
