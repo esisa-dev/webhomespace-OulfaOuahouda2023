@@ -10,9 +10,10 @@ export default instance;
 const BASE_URL = 'http://localhost:5001';
 
 export async function login(username, password) {
-  const response = await axios.post(`${BASE_URL}/login`, { username, password }, { withCredentials: true });
-  return response.data;
-}
+    const response = await axios.post(`${BASE_URL}/login`, { username, password }, { withCredentials: true });
+    return response.data;
+  }
+  
 
 export async function logout() {
   const response = await axios.post(`${BASE_URL}/logout`, {}, { withCredentials: true });
