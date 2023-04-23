@@ -44,3 +44,24 @@ WHS Project: OULFA OUAHOUDA
 - Description : Télécharge le répertoire de l'utilisateur actuellement connecté au format zip.
 - Responses :
     - `200 OK` : renvoie le fichier zip à télécharger.
+
+
+## Feuille de route
+
+1. Installation des outils nécessaires : Pour travailler avec Angular, il faut installer le CLI d'Angular, qui permet de générer des projets, des composants, des services et bien plus encore.
+
+2. Génération d'un projet Angular : Utilisez le CLI d'Angular pour générer un nouveau projet en exécutant la commande `ng new <nom-du-projet>`. Cela va créer une nouvelle application Angular avec une structure de fichiers de base.
+
+3. Création des composants : Créez les composants nécessaires pour votre application (par exemple, un composant pour la page de connexion, un pour la page d'accueil, un pour la page de recherche, etc.). Vous pouvez utiliser le CLI d'Angular pour générer automatiquement ces composants en exécutant la commande `ng generate component <nom-du-composant>`.
+
+4. Mise en place de l'authentification : Créez un formulaire de connexion et utilisez le service de connexion Flask pour vérifier les informations d'identification de l'utilisateur. Si les informations d'identification sont correctes, stockez un jeton d'authentification dans la session pour authentifier les demandes ultérieures.
+
+5. Affichage des fichiers et dossiers : Créez une page d'accueil pour afficher les fichiers et dossiers de l'utilisateur actuellement connecté. Utilisez le service Flask pour récupérer les données du répertoire et les afficher dans un tableau.
+
+6. Mise en place de la recherche : Créez une page de recherche qui permet à l'utilisateur de rechercher des fichiers par nom ou extension. Utilisez le service Flask pour effectuer la recherche et afficher les résultats dans un tableau.
+
+7. Téléchargement du répertoire : Ajoutez un bouton de téléchargement sur la page d'accueil qui permet à l'utilisateur de télécharger le répertoire complet au format zip. Utilisez le service Flask pour créer le fichier zip et le renvoyer à l'utilisateur.
+
+8. Mise en place de la déconnexion : Ajoutez un bouton de déconnexion sur la page d'accueil qui permet à l'utilisateur de se déconnecter de l'application. Utilisez le service Flask pour supprimer le jeton d'authentification et rediriger l'utilisateur vers la page de connexion.
+
+9. Déploiement de l'application : Déployez l'application en tant que service Linux pour permettre aux utilisateurs d'y accéder via un navigateur Web.
