@@ -6,6 +6,10 @@ WHS Project: OULFA OUAHOUDA
 ## Comment lancer le backend ?
 go to whs_backend and start the big sh file called start.sh
 
+or 
+
+sudo -E /home/pc/github-classroom/esisa-dev/webhomespace-OulfaOuahouda2023/whs_backend/venv/bin/python3 app.py 
+
 ## Endpoints API Flask
 
 ### `POST /login`
