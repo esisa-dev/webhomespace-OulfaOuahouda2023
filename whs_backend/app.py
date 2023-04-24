@@ -38,6 +38,20 @@ def browse_subpath(subpath):
     return render_template('browse.html', dirs=dirs, files=files, subpath=subpath)
 
 
+@app.route('/download/<path:subpath>/<string:filename>')
+def download_file(subpath, filename):
+    if 'username' not in session:
+        return redirect(url_for('index'))
+
+    base_path = Path.home()
+    target_path = base_path / subpath
+
+    if not target_path.exists() or not target_path.is_dir():
+        flash("Le chemin spécifié n'existe pas ou n'est pas un répertoire.")
+        return redirect(url_for('browse'))
+
+    return send_from_directory(directory=target_path, filename=filename)
+
 @app.route('/login', methods=['POST'])
 def login():
     username = request.form['username']
@@ -87,30 +101,6 @@ def browse(subpath):
 def get_base_dir(username):
     base_dir = os.path.join("/home", username)
     return base_dir
-
-
-@app.route('/download/<path:subpath>/<string:filename>')
-def download_file(subpath, filename):
-    if 'username' not in session:
-        return redirect(url_for('index'))
-
-    base_path = Path.home()
-    target_path = base_path / subpath
-    file_path = target_path / filename
-
-    if not target_path.exists() or not target_path.is_dir():
-        flash("Le chemin spécifié n'existe pas ou n'est pas un répertoire.")
-        return redirect(url_for('browse'))
-
-    if not file_path.exists() or not file_path.is_file():
-        flash("Le fichier spécifié n'existe pas ou n'est pas un fichier.")
-        return redirect(url_for('browse'))
-
-    try:
-        return send_from_directory(directory=target_path, filename=filename)
-    except Exception as e:
-        flash("Erreur lors du téléchargement du fichier : " + str(e))
-        return redirect(url_for('browse'))
 
 
 def get_dirs_and_files(path):
@@ -188,4 +178,4 @@ def authenticate(username, password):
     return auth.authenticate(username, password)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5055)
+    app.run(debug=True, port=5056)
