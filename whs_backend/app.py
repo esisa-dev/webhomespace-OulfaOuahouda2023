@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory, send_file
 from flask_bootstrap import Bootstrap
 from flask import send_from_directory
 import os
@@ -19,7 +19,8 @@ logging.basicConfig(filename='app.log', level=logging.INFO)
 @app.route('/')
 def index():
     if 'username' in session:
-        return redirect(url_for('browse'))
+        num_files = len(list_files(Path.home())[1])
+        return render_template('index.html', num_files=num_files)
     return render_template('index.html')
 
 @app.route('/browse/<path:subpath>')
@@ -95,8 +96,21 @@ def browse(subpath):
         return "Dossier introuvable.", 404
 
     dirs, files = get_dirs_and_files(current_dir)
+    num_files = len(files)
+    num_dirs = len(dirs)
+    space = human_readable_size(os.statvfs(base_dir).f_frsize * os.statvfs(base_dir).f_bavail)
 
-    return render_template('browse.html', dirs=dirs, files=files, subpath=subpath)
+    return render_template('browse.html', dirs=dirs, files=files, subpath=subpath, num_files=num_files, num_dirs=num_dirs, space=space)
+
+
+def human_readable_size(size, decimal_places=1):
+    for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+        if size < 1024.0:
+            break
+        size /= 1024.0
+    return f"{size:.{decimal_places}f} {unit}"
+
+
 
 def get_base_dir(username):
     base_dir = os.path.join("/home", username)
@@ -176,6 +190,31 @@ def download(filepath):
 def authenticate(username, password):
     auth = pam.pam()
     return auth.authenticate(username, password)
+
+
+@app.route('/download-as-file/<path:subpath>/<string:filename>')
+def download_file_as_file(subpath, filename):
+    if 'username' not in session:
+        return redirect(url_for('index'))
+
+    base_path = Path.home()
+    target_path = base_path / subpath
+
+    if not target_path.exists() or not target_path.is_dir():
+        flash("Le chemin spécifié n'existe pas ou n'est pas un répertoire.")
+        return redirect(url_for('browse'))
+
+    # Ajouter cette ligne pour obtenir le chemin complet du fichier
+    file_path = target_path / filename
+
+    if not file_path.exists() or not file_path.is_file():
+        flash("Le fichier spécifié n'existe pas ou n'est pas un fichier.")
+        return redirect(url_for('browse'))
+
+    logging.info(f"{session['username']} a téléchargé le fichier {filename}")
+    return send_file(file_path, as_attachment=True)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5056)
