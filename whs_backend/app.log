@@ -483,3 +483,54 @@ INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:15:19] "[32mPOST /login HTTP/1.1[0
 INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:15:19] "GET /browse HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:15:23] "[32mGET /browse//.local HTTP/1.1[0m" 308 -
 INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:15:23] "GET /browse/.local HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:29] "GET /browse HTTP/1.1" 200 -
+INFO:root:pc s'est déconnecté
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:31] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:31] "GET / HTTP/1.1" 200 -
+INFO:root:pc s'est connecté
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:34] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:34] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:39] "[32mGET /browse//Downloads HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:39] "GET /browse/Downloads HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:40] "[32mGET /download/Downloads//home/pc/Downloads/sova.png HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:40] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:47] "GET /browse/Downloads HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:49] "[32mGET /download/Downloads//home/pc/Downloads/sova.png HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:21:49] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:22:25] "[32mGET /download/Downloads//home/pc/Downloads/sova.png HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:22:25] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:24:54] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:24:54] "GET /browse HTTP/1.1" 200 -
+INFO:root:pc s'est déconnecté
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:24:55] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:24:55] "GET / HTTP/1.1" 200 -
+INFO:root:pc s'est connecté
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:25:00] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:25:00] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:25:12] "GET /browse/Downloads HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:25:13] "[32mGET /download/Downloads//home/pc/Downloads/avis_echeance_59409477.pdf HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:25:13] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:25:18] "GET /browse/Downloads HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:25:20] "[32mGET /download/Downloads//home/pc/Downloads/sova.png HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:25:20] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:06] "GET /browse/Downloads HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:07] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:07] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:11] "[32mGET /browse//Documents HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:11] "GET /browse/Documents HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:20] "GET /browse/Documents/web-home-space HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:23] "[32mGET /browse/Documents/web-home-space//home/pc/Documents/web-home-space/venv HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:23] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:30] "GET /browse/Documents/web-home-space/venv HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:35] "[32mGET /download/Documents/web-home-space/venv//home/pc/Documents/web-home-space/venv/app.py HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:35] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:40] "[32mGET /download/Documents/web-home-space/venv//home/pc/Documents/web-home-space/venv/app.py HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:40] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:58] "[32mGET /browse/Documents/web-home-space/venv//home/pc/Documents/web-home-space/venv/include HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:42:58] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:43:03] "GET /browse/Documents/web-home-space/venv/include HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:43:05] "[32mGET / HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:43:05] "GET /browse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:43:14] "GET /browse/Desktop HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:43:17] "[32mGET /download/Desktop//home/pc/Desktop/oldcode HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [24/Apr/2023 15:43:17] "GET /browse HTTP/1.1" 200 -
