@@ -191,6 +191,24 @@ def authenticate(username, password):
     auth = pam.pam()
     return auth.authenticate(username, password)
 
+def generate_download_url(filepath):
+    return url_for('download_as_file', filepath=filepath)
+
+def generate_download_url_rel(filepath):
+    # Retirer "/home/pc" du chemin absolu
+    rel_path = str(Path(filepath).relative_to(Path.home()))
+    return url_for('download_as_file', filepath=rel_path)
+
+
+@app.route('/download-as-file/<path:filepath>')
+def download_as_file(filepath):
+    if 'username' not in session:
+        return redirect(url_for('index'))
+    
+    base_path = str(Path.home() / session['username'])
+    full_path = os.path.join(base_path, filepath[1:])  # Supprimer la barre oblique initiale
+    filename = os.path.basename(full_path)
+    return send_file(full_path, as_attachment=True, attachment_filename=filename)
 
 @app.route('/download-as-file/<path:subpath>/<string:filename>')
 def download_file_as_file(subpath, filename):

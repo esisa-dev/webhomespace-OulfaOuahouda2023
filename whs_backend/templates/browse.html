@@ -54,7 +54,10 @@
                 <tr>
                     <td>{{ f }}</td>
                     <td>
-                        <a href="{{ url_for('download_file_as_file', subpath=subpath, filename=f) }}">Télécharger</a>
+                        <a href="{{ url_for('download_file', subpath=subpath, filename=f) }}" target="_blank">Aperçu ou telecharger</a>
+
+
+
                     </td>
                 </tr>
                 {% endfor %}
