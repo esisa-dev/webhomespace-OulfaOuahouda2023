@@ -6,21 +6,19 @@ search_files: recherche des fichiers qui contiennent la chaîne de caractères q
 read_file_content: lit le contenu du fichier spécifié en utilisant la fonction open.
 get_file_size: récupère la taille du fichier spécifié en utilisant os.path.getsize.
 '''
+
+
 def get_directory_data(path, username):
     dirs = []
     files = []
-
-    try:
-        with os.scandir(path) as entries:
-            for entry in entries:
-                if entry.is_file():
-                    files.append(entry)
-                elif entry.is_dir():
-                    dirs.append(entry)
-    except PermissionError:
-        print(f"Permission denied for the path: {path}")
-
+    with os.scandir(path) as entries:
+        for entry in entries:
+            if entry.is_dir():
+                dirs.append({"name": entry.name, "path": entry.path})
+            elif entry.is_file():
+                files.append({"name": entry.name, "path": entry.path})
     return dirs, files
+
 
 def search_files(query, path, username):
     results = []

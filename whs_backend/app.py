@@ -85,6 +85,17 @@ def download():
     response.headers['Content-Disposition'] = f'attachment; filename={zip_filename}'
     return response
 
+@app.route('/api/files', methods=['GET'])
+def api_files():
+    username = session.get('user')
+    if not username:
+        return jsonify({"error": "Not logged in"}), 401
+
+    path = request.args.get('path', f'/home/{username}')
+    dirs, files = get_directory_data(path, username)
+    return jsonify({"dirs": dirs, "files": files})
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
